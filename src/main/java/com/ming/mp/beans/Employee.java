@@ -1,23 +1,33 @@
 package com.ming.mp.beans;
 
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableName;
+import java.io.Serializable;
+
 /**
+ * <p>
+ * 
+ * </p>
  *
- * JavaBean和数据库表的字段对应,定义avaBean中成员变量时所使用的类型使用引用类型
- * 因为每个基本类型都有个默认值：
- * int==0
- * Boolean==false
+ * @author liming
+ * @since 2021-05-25
  */
-public class Employee {
+@TableName("tbl_employee")
+public class Employee extends Model<Employee> {
 
-    private  Integer id;
+    private static final long serialVersionUID = 1L;
 
+    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
     private String lastName;
-
     private String email;
-
-    private Integer gender;
-
+    private String gender;
     private Integer age;
+
 
     public Integer getId() {
         return id;
@@ -43,11 +53,11 @@ public class Employee {
         this.email = email;
     }
 
-    public Integer getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Integer gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -60,13 +70,18 @@ public class Employee {
     }
 
     @Override
+    protected Serializable pkVal() {
+        return this.id;
+    }
+
+    @Override
     public String toString() {
         return "Employee{" +
-                "id=" + id +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", gender=" + gender +
-                ", age=" + age +
-                '}';
+        ", id=" + id +
+        ", lastName=" + lastName +
+        ", email=" + email +
+        ", gender=" + gender +
+        ", age=" + age +
+        "}";
     }
 }

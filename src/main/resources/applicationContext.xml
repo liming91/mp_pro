@@ -37,7 +37,7 @@
         <property name="dataSource" ref="dataSource"></property>
         <property name="configLocation" value="classpath:mybatis-config.xml"></property>
         <!-- 别名处理 -->
-        <property name="typeAliasesPackage" value="com.atguigu.mp.beans"></property>
+        <property name="typeAliasesPackage" value="com.ming.mp.beans"></property>
 
         <!-- 注入全局MP策略配置 -->
         <property name="globalConfig" ref="globalConfiguration"></property>
@@ -45,7 +45,7 @@
 
     <!-- 定义MybatisPlus的全局策略配置-->
     <bean id ="globalConfiguration" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">
-        <!-- 在2.3版本以后，dbColumnUnderline 默认值就是true -->
+        <!-- 在2.3版本以后，dbColumnUnderline 默认值就是true 表名、字段名、是否使用下划线命名（默认 true: 数据库下划线命名） -->
         <property name="dbColumnUnderline" value="true"></property>
 
         <!-- 全局的主键策略 -->
